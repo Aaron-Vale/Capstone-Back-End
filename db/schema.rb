@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101135355) do
+ActiveRecord::Schema.define(version: 20171101140730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20171101135355) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "score", default: 0
+    t.string "propic", default: "https://av-wdi-20.s3.amazonaws.com/filebucket/2017-11-01/e4efe224c7a5e8c60f7c7e1240d9c1ae.png"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["token"], name: "index_users_on_token", unique: true
   end
