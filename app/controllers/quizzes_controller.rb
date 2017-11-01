@@ -15,7 +15,7 @@ class QuizzesController < OpenReadController
 
   # POST /quizzes
   def create
-    @quiz = Quiz.new(quiz_params)
+    @quiz = current_user.quizzes.build(quiz_params)
 
     if @quiz.save
       render json: @quiz, status: :created, location: @quiz
