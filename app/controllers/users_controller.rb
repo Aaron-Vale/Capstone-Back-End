@@ -55,14 +55,25 @@ class UsersController < ProtectedController
   end
 
   def update
-    head :bad_request
+    creds = user_creds
+    @user = User.find(params[:id])
+    if  creds[:email] ||
+        creds[:password] ||
+        creds[:password_confirmation] ||
+        current_user != User.find(params[:id])
+      head :bad_request
+    elsif @user.update(user_creds)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   private
 
   def user_creds
     params.require(:credentials)
-          .permit(:email, :password, :password_confirmation, :username)
+          .permit(:email, :password, :password_confirmation, :username, :score, :propic)
   end
 
   def pw_creds
