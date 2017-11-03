@@ -62,6 +62,12 @@ class UsersController < ProtectedController
         creds[:password_confirmation] ||
         current_user != User.find(params[:id])
       head :bad_request
+    elsif !creds[:propic]
+      creds[:propic] = current_user[:propic]
+    elsif !creds[:score]
+      creds[:score] = current_user[:score]
+    elsif !creds[:username]
+      creds[:propic] = current_user[:username]
     elsif @user.update(user_creds)
       render json: @user
     else
