@@ -1,4 +1,4 @@
-class QuizzesController < OpenReadController
+class QuizzesController < ProtectedController
   before_action :set_quiz, only: [:show, :update, :destroy]
 
   # GET /quizzes
