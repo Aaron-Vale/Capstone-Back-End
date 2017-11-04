@@ -3,7 +3,7 @@ class QuizzesController < ProtectedController
 
   # GET /quizzes
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.order('category ASC')
 
     render json: @quizzes
   end

@@ -46,7 +46,7 @@ class UsersController < ProtectedController
   end
 
   def index
-    render json: User.all
+    render json: User.order('score DESC')
   end
 
   def show
