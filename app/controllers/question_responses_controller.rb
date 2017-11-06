@@ -1,4 +1,4 @@
-class QuestionResponsesController < OpenReadController
+class QuestionResponsesController < ProtectedController
   before_action :set_question_response, only: [:show, :update, :destroy]
 
   # GET /question_responses
