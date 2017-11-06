@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show update]
   resources :quizzes, except: %i[new edit]
   resources :questions, except: %i[new edit]
+  resources :question_responses, only: %i[create index]
 end
