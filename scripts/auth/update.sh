@@ -1,9 +1,9 @@
-TOKEN="BAhJIiVmZWVhODhmMmZmMzlkNTA1OGQxNWFlMWMzY2M0ZTQ3MAY6BkVG--79835cfcb04b696af3485e46e2aeeeb9537bfbca"
+TOKEN="BAhJIiUzMWE4N2QyMzBhOWI5ZjMyNmU1OTQyOGIxNDhiMjBiMAY6BkVG--dcaef9ef6a9d723008f89c70ebce5be740303fc9"
 curl --include --request PATCH "http://localhost:4741/users/${ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
-    "credentials": {
-      "username": "'"${USERNAME}"'"
+    "user": {
+      "propic": "'"${PROPIC}"'"
     }
   }'

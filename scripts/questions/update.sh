@@ -1,4 +1,4 @@
-TOKEN="BAhJIiU1YjVlNDhlZjU2NmIxYmU2YjFiNDllNDZkYmJlNDhiZQY6BkVG--7305328323cc6e3d9337e374123003b2dfadeb3f"
+TOKEN="BAhJIiVkNjExMWE3OWMzMTI2YzEyMzcxN2QwNmRhZWJhMWVhYwY6BkVG--514df49f74a94d8b13b45bcd3ee31d94394fa277"
 curl --include --request PATCH "http://localhost:4741/questions/${ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \

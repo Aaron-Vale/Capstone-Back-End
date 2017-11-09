@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :quizzes
   has_many :question_responses
   has_many :questions, through: :question_responses
+  has_many :questions
 end

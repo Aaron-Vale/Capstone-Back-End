@@ -3,7 +3,7 @@ class QuestionResponsesController < ProtectedController
 
   # GET /question_responses
   def index
-    @question_responses = QuestionResponse.all
+    @question_responses = current_user.question_responses.all
 
     render json: @question_responses
   end
@@ -41,7 +41,7 @@ class QuestionResponsesController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question_response
-      @question_response = QuestionResponse.find(params[:id])
+      @question_response = current_user.question_responses.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

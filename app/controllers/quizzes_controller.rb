@@ -1,5 +1,5 @@
 class QuizzesController < ProtectedController
-  before_action :set_quiz, only: [:show, :update, :destroy]
+  before_action :set_quiz, only: [:update, :destroy]
 
   # GET /quizzes
   def index
@@ -10,7 +10,7 @@ class QuizzesController < ProtectedController
 
   # GET /quizzes/1
   def show
-    render json: @quiz
+    render json: Quiz.find(params[:id])
   end
 
   # POST /quizzes
@@ -18,7 +18,7 @@ class QuizzesController < ProtectedController
     @quiz = current_user.quizzes.build(quiz_params)
 
     if @quiz.save
-      render json: @quiz, status: :created, location: @quiz
+      render json: @quiz, status: :created
     else
       render json: @quiz.errors, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class QuizzesController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz
-      @quiz = Quiz.find(params[:id])
+      @quiz = current_user.quizzes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
